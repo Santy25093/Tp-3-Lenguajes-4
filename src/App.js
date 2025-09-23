@@ -1,13 +1,21 @@
 
 import React from "react";
-import FileUploader from "./components/FileUploader";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Contacto from "./pages/Contacto";
 
 function App() {
-  return React.createElement(
-    "div",
-    { className: "App" },
-    React.createElement("h1", null, "TP2 - Lenguajes IV"),
-    React.createElement(FileUploader, null)
+  return (
+    <Router>
+      <Navbar />
+      <div style={{ padding: "20px" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contacto" element={<Contacto />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
